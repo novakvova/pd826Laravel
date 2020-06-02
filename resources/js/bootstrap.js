@@ -31,6 +31,11 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 window.Cropper = require('cropperjs');
 
+window.tinymce = require("tinymce");
+
+//window.FroalaEditor = require('froala-editor');
+
+
 // import Echo from 'laravel-echo';
 
 // window.Pusher = require('pusher-js');

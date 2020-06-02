@@ -124,21 +124,11 @@
     </script>
 
     <script>
-        //запускаємо фороалу едітор
+        tinymce.init({
+            selector: '#edit'
+        });
         // $(function () {
-        //     const editorInstance = new FroalaEditor('#edit', {
-        //         enter: FroalaEditor.ENTER_P,
-        //         placeholderText: null,
-        //         events: {
-        //             initialized: function () {
-        //                 const editor = this;
-        //                 this.el.closest('form').addEventListener('submit', function (e) {
-        //                     // cosnole.log("--------", editor);
-        //                     // e.preventDefault();
-        //                 })
-        //             }
-        //         }
-        //     })
+        //     new FroalaEditor('#edit');
         // });
     </script>
 @endsection
