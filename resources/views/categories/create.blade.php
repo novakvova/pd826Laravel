@@ -122,10 +122,12 @@
             });
         })
     </script>
+    <script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
 
     <script>
         tinymce.init({
-            selector: '#edit'
+            selector: 'textarea#edit',
+            plugins: 'image'
         });
         // $(function () {
         //     new FroalaEditor('#edit');
