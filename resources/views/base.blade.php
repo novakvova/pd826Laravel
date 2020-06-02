@@ -15,5 +15,7 @@
     //     alert("Hello");
     // });
 </script>
+
+@yield('scripts')
 </body>
 </html>

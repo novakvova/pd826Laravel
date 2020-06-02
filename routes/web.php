@@ -19,6 +19,8 @@ Route::get('/', function () {
 
 Route::resource('contacts', 'ContactController');
 
+Route::resource('categories', 'CategoryController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
