@@ -9,6 +9,11 @@
 <div class="container">
     @yield('main')
 </div>
-<script src="{{ asset('js/app.js') }}" type="text/js"></script>
+<script src="{{ asset('js/app.js') }}" ></script>
+<script>
+    // $(function() {
+    //     alert("Hello");
+    // });
+</script>
 </body>
 </html>
