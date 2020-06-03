@@ -23,7 +23,7 @@
 
                     <div class="form-group">
                         <img class="chose-image" src="{{ asset('images/upload.png') }}"
-                             id="chooseImage" alt="Обрати фото">
+                             id="chooseImage" alt="Обрати фото" width="200">
                         <input type="hidden" name="base64Image" id="base64Image">
 
                         <input type="file" id="selectImage" class="d-none">
@@ -94,7 +94,7 @@
             //запуск кропера
             const imageCropper = document.getElementById('imageCropper');
             const cropper = new Cropper(imageCropper, {
-                aspectRatio: 1/1,
+                aspectRatio: 224/168,
                 viewMode: 1,
                 autoCropArea: 0.5,
                 crop(event) {
