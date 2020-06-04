@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Str;
@@ -17,7 +18,13 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+//        $p = Product::find(1);
+//        $name = $p->name;
+//        $cat=$p->category;
+//        $catName=$cat->name;
+        $categories = Category::all();
+
+        return view('categories.index', compact('categories'));
     }
 
     /**
