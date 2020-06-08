@@ -52,3 +52,13 @@
         <div>
     </div>
 @endsection
+
+@section('scripts')
+    <script>
+        // $(function() {
+        //
+        //     //alert("Hello");
+        // });
+    </script>
+
+@endsection

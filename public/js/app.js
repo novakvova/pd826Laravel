@@ -30043,26 +30043,12 @@ window.Cropper = __webpack_require__(/*! cropperjs */ "./node_modules/cropperjs/
 
 (function ($) {
   $(document).ready(function () {
-    generateID();
+    //generateID();
     initCropper(); //загрузка фото на клік
 
     uploadImage();
-    var ID;
     var cropper;
-    var dialogCropper = $("#cropperModal");
-
-    function generateID() {
-      var text = $('header span');
-      var newID = '';
-
-      for (var i = 0; i < 3; i++) {
-        newID += Math.floor(Math.random() * 3);
-      }
-
-      ID = 'ID: 5988' + newID;
-      text.html(ID);
-    } //загрузка фото на клік
-
+    var dialogCropper = $("#cropperModal"); //загрузка фото на клік
 
     function uploadImage() {
       var button = $('.images .pic');
@@ -30089,7 +30075,14 @@ window.Cropper = __webpack_require__(/*! cropperjs */ "./node_modules/cropperjs/
       $("#cropImg").on("click", function (e) {
         e.preventDefault();
         var imgContent = cropper.getCroppedCanvas().toDataURL();
-        images.prepend('<div class="img" style="background-image: url(' + imgContent + ');" rel="' + imgContent + '"><span>remove</span></div>');
+        axios.post('/products/upload', {
+          imageBase64: imgContent
+        }).then(function (resp) {
+          var url = resp.data.url;
+          images.prepend('<div class="img" style="background-image: url(' + url + ');" rel="' + url + '"><span>remove</span></div>');
+          console.log("Result", resp);
+        }); //images.prepend('<div class="img" style="background-image: url(' + imgContent + ');" rel="'+ imgContent  +'"><span>remove</span></div>');
+
         dialogCropper.modal('hide');
       });
     }
@@ -30098,7 +30091,7 @@ window.Cropper = __webpack_require__(/*! cropperjs */ "./node_modules/cropperjs/
       //запуск кропера
       var imageCropper = document.getElementById('imageCropper');
       cropper = new Cropper(imageCropper, {
-        aspectRatio: 224 / 168,
+        aspectRatio: 420 / 320,
         viewMode: 1,
         autoCropArea: 0.5,
         crop: function crop(event) {// console.log(event.detail.x);
