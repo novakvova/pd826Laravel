@@ -7,22 +7,11 @@
         //загрузка фото на клік
         uploadImage();
 
-        let ID;
         let cropper;
         let dialogCropper = $("#cropperModal");
 
 
-        function generateID() {
-            let text = $('header span');
-            let newID = '';
 
-            for(let i = 0; i < 3; i++) {
-                newID += Math.floor(Math.random() * 3)
-            }
-
-            ID = 'ID: 5988' + newID;
-            text.html(ID)
-        }
 
         //загрузка фото на клік
         function uploadImage() {
