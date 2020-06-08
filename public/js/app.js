@@ -30079,7 +30079,9 @@ window.Cropper = __webpack_require__(/*! cropperjs */ "./node_modules/cropperjs/
           imageBase64: imgContent
         }).then(function (resp) {
           var url = resp.data.url;
+          var id = resp.data.id;
           images.prepend('<div class="img" style="background-image: url(' + url + ');" rel="' + url + '"><span>remove</span></div>');
+          images.prepend('<input type="hidden" name="productImages[]" value="' + id + '">');
           console.log("Result", resp);
         }); //images.prepend('<div class="img" style="background-image: url(' + imgContent + ');" rel="'+ imgContent  +'"><span>remove</span></div>');
 

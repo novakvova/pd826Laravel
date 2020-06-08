@@ -4,6 +4,7 @@
             <div class="pic">
                 Додати фото
             </div>
+
         </div>
     </div>
 </div>

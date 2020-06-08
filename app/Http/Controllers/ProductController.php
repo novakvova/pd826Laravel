@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ProductImage;
 use Illuminate\Http\Request;
 use App\Product;
 use Intervention\Image\ImageManagerStatic as Image;
@@ -40,6 +41,30 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         //
+        //$res=$_POST["productImages"];
+        $request->validate([
+            'name'=>'required',
+            'description'=>'required'
+        ]);
+
+        $product = new Product([
+            'name' => $request->get('name'),
+            'price' => 45,
+            'category_id' => 1,
+            'description' => $request->get('description')
+        ]);
+        $product->save();
+
+        $listImages=$request-> get("productImages");
+        foreach($listImages as $id)
+        {
+            $pi = ProductImage::find($id);
+            $pi->product_id =  $product->id;
+            $pi->save();
+        }
+
+        return redirect('/products')->with('success', 'Продукт успішно збережено!');
+
     }
 
     /**
@@ -95,7 +120,14 @@ class ProductController extends Controller
         $path = public_path('images/').$img_url;
         my_image_resize(420,320, $path, $base64_image);
 
-        return response()->json(['url'=>'/images/'.$img_url]);
+        $productImage = new ProductImage([
+            'name' => $img_url,
+            'priority' => 1
+        ]);
+        $productImage->save();
+
+
+        return response()->json(['id'=> $productImage->id, 'url'=>'/images/'.$img_url]);
     }
 }
 
