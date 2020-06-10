@@ -31,6 +31,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 window.Cropper = require('cropperjs');
 
+window.xzoom = require('xzoom');
 
 //window.FroalaEditor = require('froala-editor');
 

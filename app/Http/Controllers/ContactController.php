@@ -12,6 +12,7 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //contacts - get
     public function index()
     {
         $contacts = Contact::all();
@@ -24,6 +25,7 @@ class ContactController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    //contacts/create - get
     public function create()
     {
         return view('contacts.create');
@@ -35,6 +37,7 @@ class ContactController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    //contacts - post
     public function store(Request $request)
     {
         $request->validate([
@@ -61,6 +64,7 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //contacts/$id - get
     public function show($id)
     {
         //
@@ -72,6 +76,7 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //contacts/$id/edit - get
     public function edit($id)
     {
         $contact = Contact::find($id);
@@ -85,6 +90,7 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //contacts/$id - post
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -111,6 +117,7 @@ class ContactController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    //contacts/$id - post
     public function destroy($id)
     {
         $contact = Contact::find($id);

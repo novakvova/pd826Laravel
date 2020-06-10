@@ -40,6 +40,8 @@
 
 @section('scripts')
 
+    @include("products.create-js")
+
     <script src="{{ asset('node_modules/tinymce/tinymce.js') }}"></script>
 
     <script>
