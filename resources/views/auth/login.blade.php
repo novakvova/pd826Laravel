@@ -51,6 +51,15 @@
                             </div>
                         </div>
 
+                        <br />
+                        <p style="margin-left:265px">OR</p>
+                        <br />
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <a href="{{url('/redirect')}}" class="btn btn-primary">Login with Facebook</a>
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
